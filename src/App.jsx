@@ -1,14 +1,10 @@
-import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const fetchDataTikTok = () => {
-    const csrfState = Math.random().toString(36).substring(2);
-    document.cookie = `csrfState=${csrfState}; expires=Thu, 29 Jun 2023 23:55:00 UTC`
-    const url = `https://www.tiktok.com/auth/authorize/client_key=${import.meta.env.VITE_CLIENT_TEST}&response_type=code&scope=user.info.basic,video.list&redirect_uri=https://headzz.github.io/test-navigation-post/&state=${csrfState}`
-    window.location = url
+  const fetchDataTikTok = async () => {
+    window.location = `https://www.tiktok.com/auth/authorize/?client_key=${import.meta.env.VITE_CLIENT_TEST}&scope=user.info.basic,video.list&state=_tiktok&redirect_uri=https://headzz.github.io/test-navigation-post/&response_type=code`
   }
   return (
     <div className="App">
