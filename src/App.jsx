@@ -4,8 +4,12 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const fetchDataTikTok = () => {
+    const csrfState = Math.random().toString(36).substring(2);
+    document.cookie = `csrfState=${csrfState}; expires=Thu, 29 Jun 2023 23:55:00 UTC`
+    const url = `https://www.tiktok.com/auth/authorize/client_key=${import.meta.env.VITE_CLIENT_TEST}&response_type=code&scope=user.info.basic,video.list&redirect_uri=https://headzz.github.io/test-navigation-post/&state=${csrfState}`
+    window.location = url
+  }
   return (
     <div className="App">
       <div>
@@ -18,12 +22,9 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+        <button onClick={fetchDataTikTok}>
+          Testing Tiktok
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
