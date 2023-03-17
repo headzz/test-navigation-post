@@ -1,8 +1,6 @@
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import axios from 'axios'
-import {LoginSocialTiktok} from 'reactjs-social-login'
 
 function App() {
   const fetchDataTikTok = async () => {
@@ -27,9 +25,6 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-      <LoginSocialTiktok client_key={import.meta.env.VITE_CLIENT_TEST} 
-      onReject={(data) => console.log('bla', data)}
-      onResolve={({ provider, data }) => {console.log(provider,data)}}>Login with Tiktok</LoginSocialTiktok>
     </div>
   )
 }
